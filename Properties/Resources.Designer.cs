@@ -63,9 +63,9 @@ namespace BitMaster.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap carIcon {
+        internal static System.Drawing.Bitmap CarIcon {
             get {
-                object obj = ResourceManager.GetObject("carIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("CarIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace BitMaster.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap deleteIcon {
+        internal static System.Drawing.Bitmap DeleteIcon {
             get {
-                object obj = ResourceManager.GetObject("deleteIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("DeleteIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

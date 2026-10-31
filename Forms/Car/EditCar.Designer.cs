@@ -1,4 +1,4 @@
-﻿namespace BitMaster.Forms.Car
+namespace BitMaster.Forms.Car
 {
     partial class EditCar
     {
@@ -28,141 +28,229 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.carIdText = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.picCarIcon = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.grpMainInfo = new System.Windows.Forms.GroupBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtCarId = new System.Windows.Forms.TextBox();
+            this.lblBrand = new System.Windows.Forms.Label();
+            this.cmbBrand = new System.Windows.Forms.ComboBox();
+            this.lblPlate = new System.Windows.Forms.Label();
+            this.txtPlateNumber = new System.Windows.Forms.TextBox();
+            this.lblCarType = new System.Windows.Forms.Label();
+            this.cmbCarType = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).BeginInit();
+            this.grpMainInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // carIdText
+            // picCarIcon
             // 
-            this.carIdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.carIdText.Location = new System.Drawing.Point(30, 56);
-            this.carIdText.Name = "carIdText";
-            this.carIdText.ReadOnly = true;
-            this.carIdText.Size = new System.Drawing.Size(144, 29);
-            this.carIdText.TabIndex = 0;
-            this.carIdText.TabStop = false;
-            this.carIdText.Text = "1234";
+            this.picCarIcon.Image = global::BitMaster.Properties.Resources.CarIcon;
+            this.picCarIcon.Location = new System.Drawing.Point(20, 16);
+            this.picCarIcon.Name = "picCarIcon";
+            this.picCarIcon.Size = new System.Drawing.Size(42, 42);
+            this.picCarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCarIcon.TabIndex = 0;
+            this.picCarIcon.TabStop = false;
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(26, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ID:";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblTitle.Location = new System.Drawing.Point(72, 16);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(286, 25);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Редактирование автомобиля";
             // 
-            // label2
+            // lblSubtitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(26, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Марка машины:";
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.lblSubtitle.Location = new System.Drawing.Point(74, 45);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(300, 13);
+            this.lblSubtitle.TabIndex = 2;
+            this.lblSubtitle.Text = "Измените данные автомобиля и сохраните изменения";
             // 
-            // label3
+            // grpMainInfo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(26, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 24);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Тип машины:";
+            this.grpMainInfo.Controls.Add(this.lblId);
+            this.grpMainInfo.Controls.Add(this.txtCarId);
+            this.grpMainInfo.Controls.Add(this.lblBrand);
+            this.grpMainInfo.Controls.Add(this.cmbBrand);
+            this.grpMainInfo.Controls.Add(this.lblPlate);
+            this.grpMainInfo.Controls.Add(this.txtPlateNumber);
+            this.grpMainInfo.Controls.Add(this.lblCarType);
+            this.grpMainInfo.Controls.Add(this.cmbCarType);
+            this.grpMainInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grpMainInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.grpMainInfo.Location = new System.Drawing.Point(16, 84);
+            this.grpMainInfo.Name = "grpMainInfo";
+            this.grpMainInfo.Size = new System.Drawing.Size(398, 252);
+            this.grpMainInfo.TabIndex = 3;
+            this.grpMainInfo.TabStop = false;
+            this.grpMainInfo.Text = "Основная информация";
             // 
-            // label4
+            // lblId
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(209, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Гос номер:";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblId.Location = new System.Drawing.Point(16, 32);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(20, 17);
+            this.lblId.TabIndex = 0;
+            this.lblId.Text = "ID";
             // 
-            // textBox1
+            // txtCarId
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(213, 147);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 29);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "А 123 АА 18";
+            this.txtCarId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
+            this.txtCarId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCarId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtCarId.Location = new System.Drawing.Point(19, 54);
+            this.txtCarId.Name = "txtCarId";
+            this.txtCarId.ReadOnly = true;
+            this.txtCarId.Size = new System.Drawing.Size(175, 25);
+            this.txtCarId.TabIndex = 1;
+            this.txtCarId.TabStop = false;
+            this.txtCarId.Text = "1234";
             // 
-            // comboBox1
+            // lblBrand
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.lblBrand.AutoSize = true;
+            this.lblBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblBrand.Location = new System.Drawing.Point(16, 100);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(102, 17);
+            this.lblBrand.TabIndex = 2;
+            this.lblBrand.Text = "Марка машины";
+            // 
+            // cmbBrand
+            // 
+            this.cmbBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbBrand.FormattingEnabled = true;
+            this.cmbBrand.Items.AddRange(new object[] {
+            "Toyota",
             "KIA",
-            "Lada",
-            "Test"});
-            this.comboBox1.Location = new System.Drawing.Point(30, 147);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 32);
-            this.comboBox1.TabIndex = 0;
+            "Lada"});
+            this.cmbBrand.Location = new System.Drawing.Point(19, 122);
+            this.cmbBrand.Name = "cmbBrand";
+            this.cmbBrand.Size = new System.Drawing.Size(175, 25);
+            this.cmbBrand.TabIndex = 0;
             // 
-            // comboBox2
+            // lblPlate
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.lblPlate.AutoSize = true;
+            this.lblPlate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPlate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblPlate.Location = new System.Drawing.Point(206, 100);
+            this.lblPlate.Name = "lblPlate";
+            this.lblPlate.Size = new System.Drawing.Size(74, 17);
+            this.lblPlate.TabIndex = 4;
+            this.lblPlate.Text = "Гос. номер";
+            // 
+            // txtPlateNumber
+            // 
+            this.txtPlateNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlateNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtPlateNumber.Location = new System.Drawing.Point(209, 122);
+            this.txtPlateNumber.Name = "txtPlateNumber";
+            this.txtPlateNumber.Size = new System.Drawing.Size(175, 25);
+            this.txtPlateNumber.TabIndex = 1;
+            this.txtPlateNumber.Text = "А 123 АА 18";
+            // 
+            // lblCarType
+            // 
+            this.lblCarType.AutoSize = true;
+            this.lblCarType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCarType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblCarType.Location = new System.Drawing.Point(16, 168);
+            this.lblCarType.Name = "lblCarType";
+            this.lblCarType.Size = new System.Drawing.Size(83, 17);
+            this.lblCarType.TabIndex = 6;
+            this.lblCarType.Text = "Тип машины";
+            // 
+            // cmbCarType
+            // 
+            this.cmbCarType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCarType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbCarType.FormattingEnabled = true;
+            this.cmbCarType.Items.AddRange(new object[] {
+            "Седан",
             "Легковая",
             "Грузовая",
             "Автобус"});
-            this.comboBox2.Location = new System.Drawing.Point(30, 221);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 32);
-            this.comboBox2.TabIndex = 1;
+            this.cmbCarType.Location = new System.Drawing.Point(19, 190);
+            this.cmbCarType.Name = "cmbCarType";
+            this.cmbCarType.Size = new System.Drawing.Size(175, 25);
+            this.cmbCarType.TabIndex = 2;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(33, 273);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 62);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Сохранить и\r\nзакрыть";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(108)))), ((int)(((byte)(223)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = global::BitMaster.Properties.Resources.SaveIcon;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(16, 352);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(238, 44);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "   Сохранить и закрыть";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(213, 273);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 62);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.btnDelete.Image = global::BitMaster.Properties.Resources.DeleteIcon;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(268, 352);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnDelete.Size = new System.Drawing.Size(146, 44);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "   Удалить";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // EditCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 456);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.carIdText);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.ClientSize = new System.Drawing.Size(430, 407);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.grpMainInfo);
+            this.Controls.Add(this.lblSubtitle);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.picCarIcon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditCar";
-            this.Text = "EditCar";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Редактирование";
+            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).EndInit();
+            this.grpMainInfo.ResumeLayout(false);
+            this.grpMainInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,15 +258,19 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox carIdText;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox picCarIcon;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.GroupBox grpMainInfo;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtCarId;
+        private System.Windows.Forms.Label lblBrand;
+        private System.Windows.Forms.ComboBox cmbBrand;
+        private System.Windows.Forms.Label lblPlate;
+        private System.Windows.Forms.TextBox txtPlateNumber;
+        private System.Windows.Forms.Label lblCarType;
+        private System.Windows.Forms.ComboBox cmbCarType;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BitMaster.Helpers;
 
 namespace BitMaster.Forms.Car
 {
@@ -15,6 +16,9 @@ namespace BitMaster.Forms.Car
         public EditCar()
         {
             InitializeComponent();
+
+            btnSave.Image = ImageHelper.Scale(Properties.Resources.SaveIcon, 20, 20);
+            btnDelete.Image = ImageHelper.Scale(Properties.Resources.DeleteIcon, 20, 20);
         }
     }
 }
