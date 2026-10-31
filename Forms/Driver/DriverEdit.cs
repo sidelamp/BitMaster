@@ -1,5 +1,4 @@
-﻿using BitMaster.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BitMaster.Forms
+namespace BitMaster.Forms.Driver
 {
-    public partial class CarList : Form
+    public partial class DriverEdit : Form
     {
-        public CarList()
+        public DriverEdit()
         {
             InitializeComponent();
-        }
-
-        private void SaveCarListButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

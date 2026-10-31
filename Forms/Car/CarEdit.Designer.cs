@@ -1,6 +1,6 @@
 namespace BitMaster.Forms.Car
 {
-    partial class EditCar
+    partial class CarEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@ namespace BitMaster.Forms.Car
         /// </summary>
         private void InitializeComponent()
         {
-            this.picCarIcon = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.grpMainInfo = new System.Windows.Forms.GroupBox();
@@ -40,21 +39,12 @@ namespace BitMaster.Forms.Car
             this.txtPlateNumber = new System.Windows.Forms.TextBox();
             this.lblCarType = new System.Windows.Forms.Label();
             this.cmbCarType = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).BeginInit();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.picCarIcon = new System.Windows.Forms.PictureBox();
             this.grpMainInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picCarIcon
-            // 
-            this.picCarIcon.Image = global::BitMaster.Properties.Resources.CarIcon;
-            this.picCarIcon.Location = new System.Drawing.Point(20, 16);
-            this.picCarIcon.Name = "picCarIcon";
-            this.picCarIcon.Size = new System.Drawing.Size(42, 42);
-            this.picCarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCarIcon.TabIndex = 0;
-            this.picCarIcon.TabStop = false;
             // 
             // lblTitle
             // 
@@ -119,7 +109,6 @@ namespace BitMaster.Forms.Car
             this.txtCarId.Size = new System.Drawing.Size(175, 25);
             this.txtCarId.TabIndex = 1;
             this.txtCarId.TabStop = false;
-            this.txtCarId.Text = "1234";
             // 
             // lblBrand
             // 
@@ -165,7 +154,6 @@ namespace BitMaster.Forms.Car
             this.txtPlateNumber.Name = "txtPlateNumber";
             this.txtPlateNumber.Size = new System.Drawing.Size(175, 25);
             this.txtPlateNumber.TabIndex = 1;
-            this.txtPlateNumber.Text = "А 123 АА 18";
             // 
             // lblCarType
             // 
@@ -193,31 +181,9 @@ namespace BitMaster.Forms.Car
             this.cmbCarType.Size = new System.Drawing.Size(175, 25);
             this.cmbCarType.TabIndex = 2;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(108)))), ((int)(((byte)(223)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = global::BitMaster.Properties.Resources.SaveIcon;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(16, 352);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnSave.Size = new System.Drawing.Size(238, 44);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "   Сохранить и закрыть";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.btnDelete.Image = global::BitMaster.Properties.Resources.DeleteIcon;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(268, 352);
@@ -227,13 +193,36 @@ namespace BitMaster.Forms.Car
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // EditCar
+            // btnSave
+            // 
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.Image = global::BitMaster.Properties.Resources.SaveIcon;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(16, 352);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(238, 44);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "   Сохранить и закрыть";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // picCarIcon
+            // 
+            this.picCarIcon.Image = global::BitMaster.Properties.Resources.CarIcon;
+            this.picCarIcon.Location = new System.Drawing.Point(20, 16);
+            this.picCarIcon.Name = "picCarIcon";
+            this.picCarIcon.Size = new System.Drawing.Size(42, 42);
+            this.picCarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCarIcon.TabIndex = 0;
+            this.picCarIcon.TabStop = false;
+            // 
+            // CarEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(430, 407);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
@@ -244,13 +233,13 @@ namespace BitMaster.Forms.Car
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EditCar";
+            this.Name = "CarEdit";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактирование";
-            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).EndInit();
             this.grpMainInfo.ResumeLayout(false);
             this.grpMainInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
