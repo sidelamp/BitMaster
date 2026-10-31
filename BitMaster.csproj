@@ -75,11 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Database.cs" />
     <Compile Include="Forms\CarList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CarList.Designer.cs">
       <DependentUpon>CarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Car\EditCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Car\EditCar.Designer.cs">
+      <DependentUpon>EditCar.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoadingForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     <EmbeddedResource Include="Forms\CarList.resx">
       <DependentUpon>CarList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Car\EditCar.resx">
+      <DependentUpon>EditCar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +122,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -126,12 +137,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
+    <None Include="packages\SQLitePCLRaw.lib.e_sqlite3.2.1.13\runtimes\win-x64\native\e_sqlite3.dll">
+      <Link>runtimes\win-x64\native\e_sqlite3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages\SQLitePCLRaw.lib.e_sqlite3.2.1.13\runtimes\win-x86\native\e_sqlite3.dll">
+      <Link>runtimes\win-x86\native\e_sqlite3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="runtimes\win-x64\native\" />
+    <Folder Include="runtimes\win-x86\native\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

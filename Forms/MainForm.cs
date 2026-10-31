@@ -20,7 +20,7 @@ namespace BitMaster
 
         private void OpenCarListButton_Click(object sender, EventArgs e)
         {
-            var window = new CarList();
+            var window = new Forms.Car.EditCar();
             window.ShowDialog();
         }
     }

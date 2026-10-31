@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitMaster.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,18 @@ namespace BitMaster
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            try
+            {
+                Database.Initialize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось инициализировать базу данных:" + Environment.NewLine + ex.Message,
+                    "BitMaster", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Application.Run(new MainForm());
         }
     }

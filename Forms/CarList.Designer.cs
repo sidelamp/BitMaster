@@ -32,8 +32,10 @@
             this.table1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SaveCarListButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.table1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveCarListButton
@@ -47,16 +49,26 @@
             this.SaveCarListButton.UseVisualStyleBackColor = true;
             this.SaveCarListButton.Click += new System.EventHandler(this.SaveCarListButton_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(649, 330);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // CarList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 495);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.SaveCarListButton);
             this.Name = "CarList";
             this.Text = "CarList";
             ((System.ComponentModel.ISupportInitialize)(this.table1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -65,5 +77,6 @@
         private System.Windows.Forms.BindingSource dataSet1BindingSource;
         private System.Windows.Forms.BindingSource table1BindingSource;
         private System.Windows.Forms.Button SaveCarListButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
