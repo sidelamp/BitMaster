@@ -82,5 +82,6 @@ MSBuild.exe BitMaster.slnx /p:Configuration=Release
 ```bat
 bin\Release\BitMaster.exe
 ```
-
 Или просто двойной клик по `BitMaster.exe`. При первом запуске рядом появится `bitmaster.db` с тестовыми данными.
+
+Релиз - https://github.com/sidelamp/BitMaster/releases
