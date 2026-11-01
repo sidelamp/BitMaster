@@ -80,6 +80,12 @@ namespace BitMaster.Forms.Crew
                 Database.SaveCrew(crew);
                 return true;
             }
+            catch (System.InvalidOperationException)
+            {
+                // Запись удалила фоновая очистка, пока форма была открыта
+                ShowWarning("Экипаж уже удалён из базы (возможно, фоновой очисткой неактивных экипажей). Сохранять нечего.");
+                return false;
+            }
             catch (Microsoft.Data.Sqlite.SqliteException)
             {
                 // Частичные уникальные индексы: активный экипаж у машины/водителя уже есть
@@ -90,8 +96,17 @@ namespace BitMaster.Forms.Crew
 
         protected override bool DeleteEntity()
         {
-            Database.DeleteCrew(entityId);
-            return true;
+            try
+            {
+                Database.DeleteCrew(entityId);
+                return true;
+            }
+            catch (System.InvalidOperationException)
+            {
+                // Уже удалён фоновой очисткой — цель достигнута, просто закрываем форму
+                ShowWarning("Экипаж уже был удалён из базы.");
+                return true;
+            }
         }
     }
 }

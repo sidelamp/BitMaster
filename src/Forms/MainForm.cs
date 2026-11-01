@@ -183,6 +183,12 @@ namespace BitMaster
                 else
                     Database.DeleteCrew(id.Value);
             }
+            catch (System.InvalidOperationException)
+            {
+                // Запись уже удалила фоновая очистка — просто обновляем таблицу
+                RefreshCurrentGrid();
+                return;
+            }
             catch (Microsoft.Data.Sqlite.SqliteException)
             {
                 // ON DELETE RESTRICT: запись используется в экипаже

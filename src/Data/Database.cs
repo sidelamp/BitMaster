@@ -482,13 +482,19 @@ ORDER BY LastName, FirstName;";
                 command.Parameters.AddWithValue("$carId", crew.CarId);
                 command.Parameters.AddWithValue("$driverId", crew.DriverId);
                 command.Parameters.AddWithValue("$active", crew.Active ? 1 : 0);
-                command.ExecuteNonQuery();
+                int affected = command.ExecuteNonQuery();
+
+                // При обновлении запись могла быть уже удалена фоновой очисткой
+                if (crew.Id >= 0 && affected == 0)
+                    throw new InvalidOperationException("Crew " + crew.Id + " was already deleted.");
             }
         }
 
         public static void DeleteCrew(int id)
         {
-            DeleteById("Crews", id);
+            // 0 строк — запись уже удалена фоновой очисткой
+            if (DeleteById("Crews", id) == 0)
+                throw new InvalidOperationException("Crew " + id + " was already deleted.");
         }
 
         /// <summary>Удаляет все неактивные экипажи. Возвращает число удалённых записей.</summary>
@@ -502,14 +508,14 @@ ORDER BY LastName, FirstName;";
             }
         }
 
-        private static void DeleteById(string table, int id)
+        private static int DeleteById(string table, int id)
         {
             using (var connection = OpenConnection())
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "DELETE FROM " + table + " WHERE Id = $id;";
                 command.Parameters.AddWithValue("$id", id);
-                command.ExecuteNonQuery();
+                return command.ExecuteNonQuery();
             }
         }
 
