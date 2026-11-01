@@ -1,13 +1,5 @@
 using BitMaster.Data;
-using BitMaster.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BitMaster
@@ -20,10 +12,6 @@ namespace BitMaster
         public MainForm()
         {
             InitializeComponent();
-
-            Load += MainForm_Load;
-            tbGrids.SelectedIndexChanged += tbGrids_SelectedIndexChanged;
-            btnRefresh.Click += btnRefresh_Click;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -31,7 +19,7 @@ namespace BitMaster
             dgvCrews.DataSource = Database.GetCrews();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void RefreshDataGrid(object sender, EventArgs e)
         {
             if (tbGrids.SelectedTab == tabCrews)
             {
@@ -49,7 +37,7 @@ namespace BitMaster
             }
         }
 
-        private void tbGrids_SelectedIndexChanged(object sender, EventArgs e)
+        private void TabPanelSelectedIndexChanged(object sender, EventArgs e)
         {
             if (tbGrids.SelectedTab == tabDrivers && !driversLoaded)
             {
@@ -63,49 +51,34 @@ namespace BitMaster
             }
         }
 
-        private void dgvCrews_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridCrews_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // open CrewEdit form with selected crew id
         }
 
-        private void dgvDrivers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridDrivers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // open DriverEdit form with selected driver id
         }
 
-        private void dgvCars_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridCars_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // open CarEdit form with selected car id
         }
 
-        private void dgvCrews_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridCrews_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.SelectRowInDataGridView(dgvCrews, e);
         }
 
-        private void dgvDrivers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridDrivers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.SelectRowInDataGridView(dgvDrivers, e);
         }
 
-        private void dgvCars_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridCars_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.SelectRowInDataGridView(dgvCars, e);
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SelectRowInDataGridView(DataGridView dgv, DataGridViewCellMouseEventArgs e)
@@ -117,6 +90,21 @@ namespace BitMaster
                 dgv.CurrentCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
             }
+        }
+
+        private void DeleteRow(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditRow(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddRow(object sender, EventArgs e)
+        {
+
         }
     }
 }

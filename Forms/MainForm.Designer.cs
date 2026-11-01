@@ -34,49 +34,49 @@
             this.tbGrids = new System.Windows.Forms.TabControl();
             this.tabCrews = new System.Windows.Forms.TabPage();
             this.dgvCrews = new System.Windows.Forms.DataGridView();
+            this.cmChangeData = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlCrews = new System.Windows.Forms.Panel();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.picCarIcon = new System.Windows.Forms.PictureBox();
             this.tabDrivers = new System.Windows.Forms.TabPage();
             this.dgvDrivers = new System.Windows.Forms.DataGridView();
+            this.pnlDrivers = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCars = new System.Windows.Forms.TabPage();
             this.dgvCars = new System.Windows.Forms.DataGridView();
+            this.pnlCars = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.imgTabList = new System.Windows.Forms.ImageList(this.components);
             this.pnlBottomButtons = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.imgTabList = new System.Windows.Forms.ImageList(this.components);
-            this.cmChangeData = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlCrews = new System.Windows.Forms.Panel();
-            this.picCarIcon = new System.Windows.Forms.PictureBox();
-            this.lblSubtitle = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlDrivers = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlCars = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlTabs.SuspendLayout();
             this.tbGrids.SuspendLayout();
             this.tabCrews.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCrews)).BeginInit();
-            this.tabDrivers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
-            this.tabCars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
-            this.pnlBottomButtons.SuspendLayout();
             this.cmChangeData.SuspendLayout();
             this.pnlCrews.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).BeginInit();
+            this.tabDrivers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.pnlDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabCars.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
             this.pnlCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlBottomButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTabs
@@ -102,7 +102,7 @@
             this.tbGrids.SelectedIndex = 0;
             this.tbGrids.Size = new System.Drawing.Size(953, 687);
             this.tbGrids.TabIndex = 1;
-            this.tbGrids.SelectedIndexChanged += new System.EventHandler(this.tbGrids_SelectedIndexChanged);
+            this.tbGrids.SelectedIndexChanged += new System.EventHandler(this.TabPanelSelectedIndexChanged);
             // 
             // tabCrews
             // 
@@ -133,8 +133,93 @@
             this.dgvCrews.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCrews.Size = new System.Drawing.Size(939, 572);
             this.dgvCrews.TabIndex = 0;
-            this.dgvCrews.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCrews_CellDoubleClick);
-            this.dgvCrews.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCrews_CellMouseDown);
+            this.dgvCrews.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridCrews_CellDoubleClick);
+            this.dgvCrews.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridCrews_CellMouseDown);
+            // 
+            // cmChangeData
+            // 
+            this.cmChangeData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addMenuItem,
+            this.editMenuItem,
+            this.deleteMenuItem,
+            this.refreshMenuItem});
+            this.cmChangeData.Name = "cmChangeData";
+            this.cmChangeData.Size = new System.Drawing.Size(129, 92);
+            // 
+            // addMenuItem
+            // 
+            this.addMenuItem.Image = global::BitMaster.Properties.Resources.AddIcon;
+            this.addMenuItem.Name = "addMenuItem";
+            this.addMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.addMenuItem.Text = "Добавить";
+            this.addMenuItem.Click += new System.EventHandler(this.AddRow);
+            // 
+            // editMenuItem
+            // 
+            this.editMenuItem.Image = global::BitMaster.Properties.Resources.ModifyIcon;
+            this.editMenuItem.Name = "editMenuItem";
+            this.editMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.editMenuItem.Text = "Изменить";
+            this.editMenuItem.Click += new System.EventHandler(this.EditRow);
+            // 
+            // deleteMenuItem
+            // 
+            this.deleteMenuItem.Image = global::BitMaster.Properties.Resources.DeleteIcon;
+            this.deleteMenuItem.Name = "deleteMenuItem";
+            this.deleteMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.deleteMenuItem.Text = "Удалить";
+            this.deleteMenuItem.Click += new System.EventHandler(this.DeleteRow);
+            // 
+            // refreshMenuItem
+            // 
+            this.refreshMenuItem.Image = global::BitMaster.Properties.Resources.RefreshIcon;
+            this.refreshMenuItem.Name = "refreshMenuItem";
+            this.refreshMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.refreshMenuItem.Text = "Обновить";
+            this.refreshMenuItem.Click += new System.EventHandler(this.RefreshDataGrid);
+            // 
+            // pnlCrews
+            // 
+            this.pnlCrews.Controls.Add(this.lblSubtitle);
+            this.pnlCrews.Controls.Add(this.lblTitle);
+            this.pnlCrews.Controls.Add(this.picCarIcon);
+            this.pnlCrews.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCrews.Location = new System.Drawing.Point(3, 3);
+            this.pnlCrews.Name = "pnlCrews";
+            this.pnlCrews.Size = new System.Drawing.Size(939, 71);
+            this.pnlCrews.TabIndex = 1;
+            // 
+            // lblSubtitle
+            // 
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.lblSubtitle.Location = new System.Drawing.Point(55, 41);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(217, 13);
+            this.lblSubtitle.TabIndex = 4;
+            this.lblSubtitle.Text = "Список экипажей (водитель + машина)";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.lblTitle.Location = new System.Drawing.Point(53, 12);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(97, 25);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Экипажи";
+            // 
+            // picCarIcon
+            // 
+            this.picCarIcon.Image = global::BitMaster.Properties.Resources.CrewIcon;
+            this.picCarIcon.Location = new System.Drawing.Point(5, 12);
+            this.picCarIcon.Name = "picCarIcon";
+            this.picCarIcon.Size = new System.Drawing.Size(42, 42);
+            this.picCarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCarIcon.TabIndex = 1;
+            this.picCarIcon.TabStop = false;
             // 
             // tabDrivers
             // 
@@ -164,194 +249,8 @@
             this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrivers.Size = new System.Drawing.Size(939, 572);
             this.dgvDrivers.TabIndex = 1;
-            this.dgvDrivers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrivers_CellDoubleClick);
-            this.dgvDrivers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDrivers_CellMouseDown);
-            // 
-            // tabCars
-            // 
-            this.tabCars.Controls.Add(this.dgvCars);
-            this.tabCars.Controls.Add(this.pnlCars);
-            this.tabCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.tabCars.ImageIndex = 0;
-            this.tabCars.Location = new System.Drawing.Point(4, 34);
-            this.tabCars.Name = "tabCars";
-            this.tabCars.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCars.Size = new System.Drawing.Size(945, 649);
-            this.tabCars.TabIndex = 2;
-            this.tabCars.Text = "Машины";
-            this.tabCars.UseVisualStyleBackColor = true;
-            // 
-            // dgvCars
-            // 
-            this.dgvCars.AllowUserToAddRows = false;
-            this.dgvCars.AllowUserToDeleteRows = false;
-            this.dgvCars.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCars.ContextMenuStrip = this.cmChangeData;
-            this.dgvCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCars.Location = new System.Drawing.Point(3, 74);
-            this.dgvCars.Name = "dgvCars";
-            this.dgvCars.ReadOnly = true;
-            this.dgvCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCars.Size = new System.Drawing.Size(939, 572);
-            this.dgvCars.TabIndex = 2;
-            this.dgvCars.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCars_CellDoubleClick);
-            this.dgvCars.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCars_CellMouseDown);
-            // 
-            // pnlBottomButtons
-            // 
-            this.pnlBottomButtons.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBottomButtons.Controls.Add(this.btnRefresh);
-            this.pnlBottomButtons.Controls.Add(this.btnDelete);
-            this.pnlBottomButtons.Controls.Add(this.btnEdit);
-            this.pnlBottomButtons.Controls.Add(this.btnAdd);
-            this.pnlBottomButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottomButtons.Location = new System.Drawing.Point(0, 687);
-            this.pnlBottomButtons.Name = "pnlBottomButtons";
-            this.pnlBottomButtons.Size = new System.Drawing.Size(953, 74);
-            this.pnlBottomButtons.TabIndex = 4;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = global::BitMaster.Properties.Resources.RefreshIcon;
-            this.btnRefresh.Location = new System.Drawing.Point(372, 10);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(114, 50);
-            this.btnRefresh.TabIndex = 7;
-            this.btnRefresh.Text = "Обновить";
-            this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::BitMaster.Properties.Resources.DeleteIcon;
-            this.btnDelete.Location = new System.Drawing.Point(252, 10);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(114, 50);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Удалить";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = global::BitMaster.Properties.Resources.ModifyIcon;
-            this.btnEdit.Location = new System.Drawing.Point(132, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(114, 50);
-            this.btnEdit.TabIndex = 5;
-            this.btnEdit.Text = "Изменить";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::BitMaster.Properties.Resources.AddIcon;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(12, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(114, 50);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = " Добавить";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // imgTabList
-            // 
-            this.imgTabList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgTabList.ImageStream")));
-            this.imgTabList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgTabList.Images.SetKeyName(0, "car.png");
-            this.imgTabList.Images.SetKeyName(1, "crew.png");
-            this.imgTabList.Images.SetKeyName(2, "driver.png");
-            // 
-            // cmChangeData
-            // 
-            this.cmChangeData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addMenuItem,
-            this.editMenuItem,
-            this.deleteMenuItem,
-            this.refreshMenuItem});
-            this.cmChangeData.Name = "cmChangeData";
-            this.cmChangeData.Size = new System.Drawing.Size(181, 114);
-            // 
-            // editMenuItem
-            // 
-            this.editMenuItem.Image = global::BitMaster.Properties.Resources.ModifyIcon;
-            this.editMenuItem.Name = "editMenuItem";
-            this.editMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editMenuItem.Text = "Изменить";
-            this.editMenuItem.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // deleteMenuItem
-            // 
-            this.deleteMenuItem.Image = global::BitMaster.Properties.Resources.DeleteIcon;
-            this.deleteMenuItem.Name = "deleteMenuItem";
-            this.deleteMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteMenuItem.Text = "Удалить";
-            this.deleteMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // refreshMenuItem
-            // 
-            this.refreshMenuItem.Image = global::BitMaster.Properties.Resources.RefreshIcon;
-            this.refreshMenuItem.Name = "refreshMenuItem";
-            this.refreshMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.refreshMenuItem.Text = "Обновить";
-            this.refreshMenuItem.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // addMenuItem
-            // 
-            this.addMenuItem.Image = global::BitMaster.Properties.Resources.AddIcon;
-            this.addMenuItem.Name = "addMenuItem";
-            this.addMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addMenuItem.Text = "Добавить";
-            this.addMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // pnlCrews
-            // 
-            this.pnlCrews.Controls.Add(this.lblSubtitle);
-            this.pnlCrews.Controls.Add(this.lblTitle);
-            this.pnlCrews.Controls.Add(this.picCarIcon);
-            this.pnlCrews.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCrews.Location = new System.Drawing.Point(3, 3);
-            this.pnlCrews.Name = "pnlCrews";
-            this.pnlCrews.Size = new System.Drawing.Size(939, 71);
-            this.pnlCrews.TabIndex = 1;
-            // 
-            // picCarIcon
-            // 
-            this.picCarIcon.Image = global::BitMaster.Properties.Resources.CrewIcon;
-            this.picCarIcon.Location = new System.Drawing.Point(5, 12);
-            this.picCarIcon.Name = "picCarIcon";
-            this.picCarIcon.Size = new System.Drawing.Size(42, 42);
-            this.picCarIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCarIcon.TabIndex = 1;
-            this.picCarIcon.TabStop = false;
-            // 
-            // lblSubtitle
-            // 
-            this.lblSubtitle.AutoSize = true;
-            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
-            this.lblSubtitle.Location = new System.Drawing.Point(55, 41);
-            this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(217, 13);
-            this.lblSubtitle.TabIndex = 4;
-            this.lblSubtitle.Text = "Список экипажей (водитель + машина)";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
-            this.lblTitle.Location = new System.Drawing.Point(53, 12);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(97, 25);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Экипажи";
+            this.dgvDrivers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridDrivers_CellDoubleClick);
+            this.dgvDrivers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridDrivers_CellMouseDown);
             // 
             // pnlDrivers
             // 
@@ -396,6 +295,37 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // tabCars
+            // 
+            this.tabCars.Controls.Add(this.dgvCars);
+            this.tabCars.Controls.Add(this.pnlCars);
+            this.tabCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.tabCars.ImageIndex = 0;
+            this.tabCars.Location = new System.Drawing.Point(4, 34);
+            this.tabCars.Name = "tabCars";
+            this.tabCars.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCars.Size = new System.Drawing.Size(945, 649);
+            this.tabCars.TabIndex = 2;
+            this.tabCars.Text = "Машины";
+            this.tabCars.UseVisualStyleBackColor = true;
+            // 
+            // dgvCars
+            // 
+            this.dgvCars.AllowUserToAddRows = false;
+            this.dgvCars.AllowUserToDeleteRows = false;
+            this.dgvCars.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCars.ContextMenuStrip = this.cmChangeData;
+            this.dgvCars.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCars.Location = new System.Drawing.Point(3, 74);
+            this.dgvCars.Name = "dgvCars";
+            this.dgvCars.ReadOnly = true;
+            this.dgvCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCars.Size = new System.Drawing.Size(939, 572);
+            this.dgvCars.TabIndex = 2;
+            this.dgvCars.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridCars_CellDoubleClick);
+            this.dgvCars.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridCars_CellMouseDown);
+            // 
             // pnlCars
             // 
             this.pnlCars.Controls.Add(this.label3);
@@ -439,6 +369,76 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // imgTabList
+            // 
+            this.imgTabList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgTabList.ImageStream")));
+            this.imgTabList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgTabList.Images.SetKeyName(0, "car.png");
+            this.imgTabList.Images.SetKeyName(1, "crew.png");
+            this.imgTabList.Images.SetKeyName(2, "driver.png");
+            // 
+            // pnlBottomButtons
+            // 
+            this.pnlBottomButtons.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBottomButtons.Controls.Add(this.btnRefresh);
+            this.pnlBottomButtons.Controls.Add(this.btnDelete);
+            this.pnlBottomButtons.Controls.Add(this.btnEdit);
+            this.pnlBottomButtons.Controls.Add(this.btnAdd);
+            this.pnlBottomButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottomButtons.Location = new System.Drawing.Point(0, 687);
+            this.pnlBottomButtons.Name = "pnlBottomButtons";
+            this.pnlBottomButtons.Size = new System.Drawing.Size(953, 74);
+            this.pnlBottomButtons.TabIndex = 4;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = global::BitMaster.Properties.Resources.RefreshIcon;
+            this.btnRefresh.Location = new System.Drawing.Point(372, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(114, 50);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Обновить";
+            this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.RefreshDataGrid);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::BitMaster.Properties.Resources.DeleteIcon;
+            this.btnDelete.Location = new System.Drawing.Point(252, 10);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(114, 50);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.Text = "Удалить";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.DeleteRow);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::BitMaster.Properties.Resources.ModifyIcon;
+            this.btnEdit.Location = new System.Drawing.Point(132, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(114, 50);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Изменить";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.EditRow);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::BitMaster.Properties.Resources.AddIcon;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(12, 10);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(114, 50);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = " Добавить";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.AddRow);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,25 +450,26 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Экипажи";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlTabs.ResumeLayout(false);
             this.tbGrids.ResumeLayout(false);
             this.tabCrews.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCrews)).EndInit();
-            this.tabDrivers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
-            this.tabCars.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
-            this.pnlBottomButtons.ResumeLayout(false);
             this.cmChangeData.ResumeLayout(false);
             this.pnlCrews.ResumeLayout(false);
             this.pnlCrews.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).EndInit();
+            this.tabDrivers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
             this.pnlDrivers.ResumeLayout(false);
             this.pnlDrivers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabCars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
             this.pnlCars.ResumeLayout(false);
             this.pnlCars.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlBottomButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
