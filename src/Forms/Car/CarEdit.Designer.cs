@@ -217,7 +217,7 @@ namespace BitMaster.Forms.Car
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "   Сохранить и закрыть";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.Save);
             // 
             // picCarIcon
             // 

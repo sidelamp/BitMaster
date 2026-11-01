@@ -1,13 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BitMaster.Helpers;
 
 namespace BitMaster.Forms.Car
 {
@@ -32,7 +24,7 @@ namespace BitMaster.Forms.Car
             // read data base and fill all text fields
         }
         
-        private void btnSave_Click(object sender, EventArgs e)
+        private void Save(object sender, EventArgs e)
         {
             // check text fields and write in data base and if successfull close form, else show warning
         }

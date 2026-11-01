@@ -75,53 +75,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Database.cs" />
-    <Compile Include="Forms\Crew\CrewEdit.cs">
+    <Compile Include="src\Data\Database.cs" />
+    <Compile Include="src\Forms\Crew\CrewEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Crew\CrewEdit.Designer.cs">
+    <Compile Include="src\Forms\Crew\CrewEdit.Designer.cs">
       <DependentUpon>CrewEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Driver\DriverEdit.cs">
+    <Compile Include="src\Forms\Driver\DriverEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Driver\DriverEdit.Designer.cs">
+    <Compile Include="src\Forms\Driver\DriverEdit.Designer.cs">
       <DependentUpon>DriverEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ImageHelper.cs" />
-    <Compile Include="Forms\Car\CarEdit.cs">
+    <Compile Include="src\Helpers\ImageHelper.cs" />
+    <Compile Include="src\Forms\Car\CarEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Car\CarEdit.Designer.cs">
+    <Compile Include="src\Forms\Car\CarEdit.Designer.cs">
       <DependentUpon>CarEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoadingForm.cs">
+    <Compile Include="src\Forms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoadingForm.Designer.cs">
+    <Compile Include="src\Forms\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForm.cs">
+    <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
+    <Compile Include="src\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Car\CarEdit.resx">
+    <EmbeddedResource Include="src\Forms\Car\CarEdit.resx">
       <DependentUpon>CarEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Crew\CrewEdit.resx">
+    <EmbeddedResource Include="src\Forms\Crew\CrewEdit.resx">
       <DependentUpon>CrewEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Driver\DriverEdit.resx">
+    <EmbeddedResource Include="src\Forms\Driver\DriverEdit.resx">
       <DependentUpon>DriverEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoadingForm.resx">
+    <EmbeddedResource Include="src\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
+    <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -162,6 +162,7 @@
   <ItemGroup>
     <Folder Include="runtimes\win-x64\native\" />
     <Folder Include="runtimes\win-x86\native\" />
+    <Folder Include="src\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
