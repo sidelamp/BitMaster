@@ -1,5 +1,3 @@
-using System;
-using System.Windows.Forms;
 using BitMaster.Data;
 using CarModel = BitMaster.Data.Car;
 
@@ -11,6 +9,8 @@ namespace BitMaster.Forms.Car
         {
             InitializeComponent();
             WireButtons();
+
+            this.btnDelete.Enabled = false;
         }
 
         public CarEdit(int carId) : base(carId)
@@ -18,6 +18,12 @@ namespace BitMaster.Forms.Car
             InitializeComponent();
             WireButtons();
             FillTextFields();
+        }
+
+        ~CarEdit()
+        {
+            btnSave.Click -= Save;
+            btnDelete.Click -= Delete;
         }
 
         private void WireButtons()

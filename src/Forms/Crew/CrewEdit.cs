@@ -12,7 +12,9 @@ namespace BitMaster.Forms.Crew
             InitializeComponent();
             WireButtons();
             FillCombos();
-            cbActiveCrew.Checked = true; // новый экипаж активен по умолчанию
+            
+            this.btnDelete.Enabled = false;
+            cbActiveCrew.Checked = true;
         }
 
         public CrewEdit(int crewId) : base(crewId)
@@ -21,6 +23,12 @@ namespace BitMaster.Forms.Crew
             WireButtons();
             FillCombos();
             FillTextFields();
+        }
+
+        ~CrewEdit()
+        {
+            btnSave.Click -= Save;
+            btnDelete.Click -= Delete;
         }
 
         private void WireButtons()

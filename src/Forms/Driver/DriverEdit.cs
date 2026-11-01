@@ -12,6 +12,8 @@ namespace BitMaster.Forms.Driver
             InitializeComponent();
             WireButtons();
             FillExperienceYears();
+
+            this.btnDelete.Enabled = false;
         }
 
         public DriverEdit(int driverId) : base(driverId)
@@ -20,6 +22,12 @@ namespace BitMaster.Forms.Driver
             WireButtons();
             FillExperienceYears();
             FillTextFields();
+        }
+
+        ~DriverEdit()
+        {
+            btnSave.Click -= Save;
+            btnDelete.Click -= Delete;
         }
 
         private void WireButtons()
