@@ -31,12 +31,14 @@ namespace BitMaster.Forms.Crew
 
         private void FillCombos()
         {
-            cmbCar.DataSource = Database.GetCarList();
+            // Только свободные машины и водители (без активного экипажа);
+            // при редактировании текущие значения этого экипажа тоже доступны
+            cmbCar.DataSource = Database.GetFreeCarList(entityId);
             cmbCar.DisplayMember = "DisplayName";
             cmbCar.ValueMember = "Id";
             cmbCar.SelectedIndex = -1;
 
-            cmbDriver.DataSource = Database.GetDriverList();
+            cmbDriver.DataSource = Database.GetFreeDriverList(entityId);
             cmbDriver.DisplayMember = "DisplayName";
             cmbDriver.ValueMember = "Id";
             cmbDriver.SelectedIndex = -1;

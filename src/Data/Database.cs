@@ -277,6 +277,42 @@ ORDER BY Id;");
             DeleteById("Cars", id);
         }
 
+        // Свободные машины: без активного экипажа.
+        // exceptCrewId — экипаж, который игнорируем (при редактировании его машина тоже доступна)
+        public static List<Car> GetFreeCarList(int exceptCrewId)
+        {
+            var list = new List<Car>();
+
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = @"
+SELECT Id, Brand, CarType, PlateNumber
+FROM Cars c
+WHERE NOT EXISTS (
+    SELECT 1 FROM Crews cr
+    WHERE cr.CarId = c.Id AND cr.Active = 1 AND cr.Id <> $except)
+ORDER BY Brand, PlateNumber;";
+                command.Parameters.AddWithValue("$except", exceptCrewId);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new Car
+                        {
+                            Id = reader.GetInt32(0),
+                            Brand = reader.GetString(1),
+                            CarType = reader.GetString(2),
+                            PlateNumber = reader.GetString(3)
+                        });
+                    }
+                }
+            }
+
+            return list;
+        }
+
         // ---------- Водители ----------
 
         public static Driver GetDriver(int id)
@@ -362,6 +398,44 @@ ORDER BY Id;");
         public static void DeleteDriver(int id)
         {
             DeleteById("Drivers", id);
+        }
+
+        // Свободные водители: без активного экипажа.
+        // exceptCrewId — экипаж, который игнорируем (при редактировании его водитель тоже доступен)
+        public static List<Driver> GetFreeDriverList(int exceptCrewId)
+        {
+            var list = new List<Driver>();
+
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = @"
+SELECT Id, LastName, FirstName, MiddleName, LicenseNumber, ExperienceYears
+FROM Drivers d
+WHERE NOT EXISTS (
+    SELECT 1 FROM Crews cr
+    WHERE cr.DriverId = d.Id AND cr.Active = 1 AND cr.Id <> $except)
+ORDER BY LastName, FirstName;";
+                command.Parameters.AddWithValue("$except", exceptCrewId);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new Driver
+                        {
+                            Id = reader.GetInt32(0),
+                            LastName = reader.GetString(1),
+                            FirstName = reader.GetString(2),
+                            MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                            LicenseNumber = reader.GetString(4),
+                            ExperienceYears = reader.GetInt32(5)
+                        });
+                    }
+                }
+            }
+
+            return list;
         }
 
         // ---------- Экипажи ----------
