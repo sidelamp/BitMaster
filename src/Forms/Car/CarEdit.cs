@@ -5,6 +5,9 @@ namespace BitMaster.Forms.Car
 {
     public partial class CarEdit : EntityEditForm
     {
+        // Исходные данные записи для определения изменений; null — новая запись
+        private CarModel original;
+
         public CarEdit()
         {
             InitializeComponent();
@@ -45,6 +48,23 @@ namespace BitMaster.Forms.Car
             cmbBrand.SelectedItem = car.Brand;
             cmbCarType.SelectedItem = car.CarType;
             txtPlateNumber.Text = car.PlateNumber;
+
+            original = car;
+        }
+
+        protected override bool HasChanges()
+        {
+            if (original == null)
+            {
+                // Новая запись: изменения есть, если хоть что-то заполнено
+                return cmbBrand.SelectedItem != null
+                    || cmbCarType.SelectedItem != null
+                    || !string.IsNullOrWhiteSpace(txtPlateNumber.Text);
+            }
+
+            return original.Brand != (string)cmbBrand.SelectedItem
+                || original.CarType != (string)cmbCarType.SelectedItem
+                || original.PlateNumber != txtPlateNumber.Text.Trim();
         }
 
         protected override bool SaveEntity()

@@ -71,7 +71,7 @@
             this.grpMainInfo.Location = new System.Drawing.Point(8, 80);
             this.grpMainInfo.Name = "grpMainInfo";
             this.grpMainInfo.Size = new System.Drawing.Size(398, 252);
-            this.grpMainInfo.TabIndex = 9;
+            this.grpMainInfo.TabIndex = 0;
             this.grpMainInfo.TabStop = false;
             this.grpMainInfo.Text = "Основная информация";
             // 
@@ -257,7 +257,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnDelete.Size = new System.Drawing.Size(146, 44);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
@@ -271,7 +271,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSave.Size = new System.Drawing.Size(238, 44);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 1;
             this.btnSave.Text = "   Сохранить и закрыть";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 

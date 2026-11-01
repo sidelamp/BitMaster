@@ -81,7 +81,7 @@
             this.grpMainInfo.Location = new System.Drawing.Point(8, 80);
             this.grpMainInfo.Name = "grpMainInfo";
             this.grpMainInfo.Size = new System.Drawing.Size(398, 399);
-            this.grpMainInfo.TabIndex = 9;
+            this.grpMainInfo.TabIndex = 0;
             this.grpMainInfo.TabStop = false;
             this.grpMainInfo.Text = "Основная информация";
             // 
@@ -160,7 +160,7 @@
             this.cmbExpirenceYears.Location = new System.Drawing.Point(19, 356);
             this.cmbExpirenceYears.Name = "cmbExpirenceYears";
             this.cmbExpirenceYears.Size = new System.Drawing.Size(99, 25);
-            this.cmbExpirenceYears.TabIndex = 13;
+            this.cmbExpirenceYears.TabIndex = 5;
             // 
             // label1
             // 
@@ -180,7 +180,7 @@
             this.maskedTextBox1.Mask = "0000 000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(99, 25);
-            this.maskedTextBox1.TabIndex = 11;
+            this.maskedTextBox1.TabIndex = 4;
             // 
             // lblLicense
             // 
@@ -211,7 +211,7 @@
             this.txtMiddleName.Location = new System.Drawing.Point(19, 235);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(373, 25);
-            this.txtMiddleName.TabIndex = 7;
+            this.txtMiddleName.TabIndex = 3;
             // 
             // lblFirstName
             // 
@@ -231,7 +231,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(19, 173);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(373, 25);
-            this.txtFirstName.TabIndex = 5;
+            this.txtFirstName.TabIndex = 2;
             // 
             // lblId
             // 
@@ -308,7 +308,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSave.Size = new System.Drawing.Size(238, 44);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 1;
             this.btnSave.Text = "   Сохранить и закрыть";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
@@ -331,7 +331,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnDelete.Size = new System.Drawing.Size(146, 44);
-            this.btnDelete.TabIndex = 10;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 

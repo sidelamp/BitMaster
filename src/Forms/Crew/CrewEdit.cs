@@ -7,6 +7,9 @@ namespace BitMaster.Forms.Crew
 {
     public partial class CrewEdit : EntityEditForm
     {
+        // Исходные данные записи для определения изменений; null — новая запись
+        private CrewModel original;
+
         public CrewEdit()
         {
             InitializeComponent();
@@ -65,6 +68,23 @@ namespace BitMaster.Forms.Crew
             cmbCar.SelectedValue = crew.CarId;
             cmbDriver.SelectedValue = crew.DriverId;
             cbActiveCrew.Checked = crew.Active;
+
+            original = crew;
+        }
+
+        protected override bool HasChanges()
+        {
+            if (original == null)
+            {
+                // Новая запись: изменения есть, если что-то выбрано
+                // (галка "Активен" по умолчанию включена — её не считаем)
+                return cmbCar.SelectedValue != null
+                    || cmbDriver.SelectedValue != null;
+            }
+
+            return original.CarId != (int)cmbCar.SelectedValue
+                || original.DriverId != (int)cmbDriver.SelectedValue
+                || original.Active != cbActiveCrew.Checked;
         }
 
         protected override bool SaveEntity()

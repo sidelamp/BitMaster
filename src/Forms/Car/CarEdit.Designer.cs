@@ -98,7 +98,7 @@ namespace BitMaster.Forms.Car
             this.grpMainInfo.Location = new System.Drawing.Point(16, 84);
             this.grpMainInfo.Name = "grpMainInfo";
             this.grpMainInfo.Size = new System.Drawing.Size(398, 252);
-            this.grpMainInfo.TabIndex = 3;
+            this.grpMainInfo.TabIndex = 0;
             this.grpMainInfo.TabStop = false;
             this.grpMainInfo.Text = "Основная информация";
             // 

@@ -13,11 +13,15 @@ namespace BitMaster.Forms
         /// <summary>Id редактируемой записи; -1 — создание новой.</summary>
         protected readonly int entityId = -1;
 
+        // Закрытие уже подтверждено (сохранение/удаление/ответ пользователя) — не спрашивать повторно
+        private bool forceClose;
+
         protected EntityEditForm()
         {
+            KeyPreview = true; // чтобы Esc ловился на уровне формы
         }
 
-        protected EntityEditForm(int entityId)
+        protected EntityEditForm(int entityId) : this()
         {
             this.entityId = entityId;
         }
@@ -31,6 +35,9 @@ namespace BitMaster.Forms
         /// <summary>Удалить запись entityId из базы. true — успешно.</summary>
         protected virtual bool DeleteEntity() { return false; }
 
+        /// <summary>Есть ли несохранённые изменения в полях формы.</summary>
+        protected virtual bool HasChanges() { return false; }
+
         protected virtual void ShowWarning(string text)
         {
             MessageBox.Show(this, text, "BitMaster", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -42,6 +49,7 @@ namespace BitMaster.Forms
                 return; // причину уже показал наследник
 
             DialogResult = DialogResult.OK;
+            forceClose = true;
             Close();
         }
 
@@ -52,13 +60,14 @@ namespace BitMaster.Forms
             {
                 // Новая запись ещё не в базе — просто закрываем без сохранения
                 DialogResult = DialogResult.Cancel;
+                forceClose = true;
                 Close();
                 return;
             }
 
             var answer = MessageBox.Show(this, "Удалить запись? Действие нельзя отменить.",
                 "BitMaster", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-           
+
             if (answer != DialogResult.Yes)
                 return;
 
@@ -66,7 +75,47 @@ namespace BitMaster.Forms
                 return;
 
             DialogResult = DialogResult.OK;
+            forceClose = true;
             Close();
+        }
+
+        // Esc закрывает форму; вопрос об изменениях задаст OnFormClosing
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                Close();
+                return;
+            }
+            base.OnKeyDown(e);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!forceClose && e.CloseReason == CloseReason.UserClosing && HasChanges())
+            {
+                var answer = MessageBox.Show(this, "Есть изменения, сохранить?", "BitMaster",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (answer == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (answer == DialogResult.Yes)
+                {
+                    if (!SaveEntity())
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
+                    DialogResult = DialogResult.OK; // чтобы MainForm обновил таблицу
+                }
+            }
+
+            base.OnFormClosing(e);
         }
     }
 }

@@ -7,6 +7,9 @@ namespace BitMaster.Forms.Driver
 {
     public partial class DriverEdit : EntityEditForm
     {
+        // Исходные данные записи для определения изменений; null — новая запись
+        private DriverModel original;
+
         public DriverEdit()
         {
             InitializeComponent();
@@ -57,6 +60,32 @@ namespace BitMaster.Forms.Driver
             txtMiddleName.Text = driver.MiddleName;
             maskedTextBox1.Text = driver.LicenseNumber;
             cmbExpirenceYears.SelectedItem = driver.ExperienceYears;
+
+            original = driver;
+        }
+
+        protected override bool HasChanges()
+        {
+            if (original == null)
+            {
+                // Новая запись: изменения есть, если хоть что-то заполнено
+                return !string.IsNullOrWhiteSpace(txtLastName.Text)
+                    || !string.IsNullOrWhiteSpace(txtFirstName.Text)
+                    || !string.IsNullOrWhiteSpace(txtMiddleName.Text)
+                    || !string.IsNullOrWhiteSpace(maskedTextBox1.Text)
+                    || cmbExpirenceYears.SelectedItem != null;
+            }
+
+            return original.LastName != txtLastName.Text.Trim()
+                || original.FirstName != txtFirstName.Text.Trim()
+                || Normalize(original.MiddleName) != Normalize(txtMiddleName.Text)
+                || original.LicenseNumber != maskedTextBox1.Text
+                || original.ExperienceYears != (int)cmbExpirenceYears.SelectedItem;
+        }
+
+        private static string Normalize(string s)
+        {
+            return string.IsNullOrWhiteSpace(s) ? "" : s.Trim();
         }
 
         protected override bool SaveEntity()
