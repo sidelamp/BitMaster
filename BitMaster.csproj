@@ -76,6 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Data\Database.cs" />
+    <Compile Include="src\Data\Models.cs" />
+    <Compile Include="src\Forms\EntityEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\Forms\Crew\CrewEdit.cs">
       <SubType>Form</SubType>
     </Compile>

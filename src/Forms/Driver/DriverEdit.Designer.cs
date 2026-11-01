@@ -132,7 +132,7 @@
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.maskedTextBox1.Location = new System.Drawing.Point(19, 296);
-            this.maskedTextBox1.Mask = "000 0000";
+            this.maskedTextBox1.Mask = "0000 000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(99, 25);
             this.maskedTextBox1.TabIndex = 11;
@@ -266,6 +266,7 @@
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "   Сохранить и закрыть";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.Click += new System.EventHandler(this.Save);
             // 
             // picCarIcon
             // 
@@ -289,6 +290,7 @@
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.Click += new System.EventHandler(this.Delete);
             // 
             // label4
             // 
@@ -347,6 +349,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.picCarIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DriverEdit";

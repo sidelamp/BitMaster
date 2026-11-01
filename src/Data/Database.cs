@@ -197,6 +197,237 @@ FROM Cars
 ORDER BY Id;");
         }
 
+        // ---------- Машины ----------
+
+        public static Car GetCar(int id)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Id, Brand, CarType, PlateNumber FROM Cars WHERE Id = $id;";
+                command.Parameters.AddWithValue("$id", id);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        return null;
+
+                    return new Car
+                    {
+                        Id = reader.GetInt32(0),
+                        Brand = reader.GetString(1),
+                        CarType = reader.GetString(2),
+                        PlateNumber = reader.GetString(3)
+                    };
+                }
+            }
+        }
+
+        public static List<Car> GetCarList()
+        {
+            var list = new List<Car>();
+
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Id, Brand, CarType, PlateNumber FROM Cars ORDER BY Brand, PlateNumber;";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new Car
+                        {
+                            Id = reader.GetInt32(0),
+                            Brand = reader.GetString(1),
+                            CarType = reader.GetString(2),
+                            PlateNumber = reader.GetString(3)
+                        });
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public static void SaveCar(Car car)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                if (car.Id < 0)
+                {
+                    command.CommandText = "INSERT INTO Cars (Brand, CarType, PlateNumber) VALUES ($brand, $type, $plate);";
+                }
+                else
+                {
+                    command.CommandText = "UPDATE Cars SET Brand = $brand, CarType = $type, PlateNumber = $plate WHERE Id = $id;";
+                    command.Parameters.AddWithValue("$id", car.Id);
+                }
+
+                command.Parameters.AddWithValue("$brand", car.Brand);
+                command.Parameters.AddWithValue("$type", car.CarType);
+                command.Parameters.AddWithValue("$plate", car.PlateNumber);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteCar(int id)
+        {
+            DeleteById("Cars", id);
+        }
+
+        // ---------- Водители ----------
+
+        public static Driver GetDriver(int id)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Id, LastName, FirstName, MiddleName, LicenseNumber, ExperienceYears FROM Drivers WHERE Id = $id;";
+                command.Parameters.AddWithValue("$id", id);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        return null;
+
+                    return new Driver
+                    {
+                        Id = reader.GetInt32(0),
+                        LastName = reader.GetString(1),
+                        FirstName = reader.GetString(2),
+                        MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                        LicenseNumber = reader.GetString(4),
+                        ExperienceYears = reader.GetInt32(5)
+                    };
+                }
+            }
+        }
+
+        public static List<Driver> GetDriverList()
+        {
+            var list = new List<Driver>();
+
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Id, LastName, FirstName, MiddleName, LicenseNumber, ExperienceYears FROM Drivers ORDER BY LastName, FirstName;";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new Driver
+                        {
+                            Id = reader.GetInt32(0),
+                            LastName = reader.GetString(1),
+                            FirstName = reader.GetString(2),
+                            MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3),
+                            LicenseNumber = reader.GetString(4),
+                            ExperienceYears = reader.GetInt32(5)
+                        });
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public static void SaveDriver(Driver driver)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                if (driver.Id < 0)
+                {
+                    command.CommandText = "INSERT INTO Drivers (LastName, FirstName, MiddleName, LicenseNumber, ExperienceYears) VALUES ($last, $first, $middle, $license, $exp);";
+                }
+                else
+                {
+                    command.CommandText = "UPDATE Drivers SET LastName = $last, FirstName = $first, MiddleName = $middle, LicenseNumber = $license, ExperienceYears = $exp WHERE Id = $id;";
+                    command.Parameters.AddWithValue("$id", driver.Id);
+                }
+
+                command.Parameters.AddWithValue("$last", driver.LastName);
+                command.Parameters.AddWithValue("$first", driver.FirstName);
+                command.Parameters.AddWithValue("$middle",
+                    string.IsNullOrWhiteSpace(driver.MiddleName) ? (object)System.DBNull.Value : driver.MiddleName.Trim());
+                command.Parameters.AddWithValue("$license", driver.LicenseNumber);
+                command.Parameters.AddWithValue("$exp", driver.ExperienceYears);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteDriver(int id)
+        {
+            DeleteById("Drivers", id);
+        }
+
+        // ---------- Экипажи ----------
+
+        public static Crew GetCrew(int id)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT Id, CarId, DriverId, Active FROM Crews WHERE Id = $id;";
+                command.Parameters.AddWithValue("$id", id);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        return null;
+
+                    return new Crew
+                    {
+                        Id = reader.GetInt32(0),
+                        CarId = reader.GetInt32(1),
+                        DriverId = reader.GetInt32(2),
+                        Active = reader.GetInt32(3) == 1
+                    };
+                }
+            }
+        }
+
+        public static void SaveCrew(Crew crew)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                if (crew.Id < 0)
+                {
+                    command.CommandText = "INSERT INTO Crews (CarId, DriverId, Active) VALUES ($carId, $driverId, $active);";
+                }
+                else
+                {
+                    command.CommandText = "UPDATE Crews SET CarId = $carId, DriverId = $driverId, Active = $active WHERE Id = $id;";
+                    command.Parameters.AddWithValue("$id", crew.Id);
+                }
+
+                command.Parameters.AddWithValue("$carId", crew.CarId);
+                command.Parameters.AddWithValue("$driverId", crew.DriverId);
+                command.Parameters.AddWithValue("$active", crew.Active ? 1 : 0);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteCrew(int id)
+        {
+            DeleteById("Crews", id);
+        }
+
+        private static void DeleteById(string table, int id)
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM " + table + " WHERE Id = $id;";
+                command.Parameters.AddWithValue("$id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
         private static DataTable LoadTable(string sql)
         {
             var table = new DataTable();

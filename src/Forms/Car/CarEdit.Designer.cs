@@ -137,8 +137,9 @@ namespace BitMaster.Forms.Car
             this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbBrand.FormattingEnabled = true;
             this.cmbBrand.Items.AddRange(new object[] {
-            "Toyota",
             "KIA",
+            "Changan",
+            "Haval",
             "Lada"});
             this.cmbBrand.Location = new System.Drawing.Point(19, 122);
             this.cmbBrand.Name = "cmbBrand";
@@ -182,7 +183,6 @@ namespace BitMaster.Forms.Car
             this.cmbCarType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbCarType.FormattingEnabled = true;
             this.cmbCarType.Items.AddRange(new object[] {
-            "Седан",
             "Легковая",
             "Грузовая",
             "Автобус"});
@@ -203,6 +203,7 @@ namespace BitMaster.Forms.Car
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.Click += new System.EventHandler(this.Delete);
             // 
             // btnSave
             // 
