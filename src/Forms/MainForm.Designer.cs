@@ -61,6 +61,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.bgWorkerDeleteCrew = new System.ComponentModel.BackgroundWorker();
             this.pnlTabs.SuspendLayout();
             this.tbGrids.SuspendLayout();
             this.tabCrews.SuspendLayout();
@@ -506,6 +507,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.ComponentModel.BackgroundWorker bgWorkerDeleteCrew;
     }
 }
 

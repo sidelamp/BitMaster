@@ -10,17 +10,57 @@ namespace BitMaster
 {
     public partial class MainForm : Form
     {
+        private const int CleanupIntervalMs = 30000; // 30 секунд
+
         private bool driversLoaded;
         private bool carsLoaded;
+        private Timer cleanupTimer;
 
         public MainForm()
         {
             InitializeComponent();
+
+            // Фоновая очистка неактивных экипажей
+            bgWorkerDeleteCrew.DoWork += BGWorkerDeleteCrew_DoWork;
+            bgWorkerDeleteCrew.RunWorkerCompleted += BGWorkerDeleteCrew_RunWorkerCompleted;
+
+            cleanupTimer = new Timer();
+            cleanupTimer.Interval = CleanupIntervalMs;
+            cleanupTimer.Tick += CleanupTimer_Tick;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             dgvCrews.DataSource = Database.GetCrews();
+            cleanupTimer.Start();
+        }
+
+        // ---------- Фоновое удаление неактивных экипажей ----------
+
+        private void CleanupTimer_Tick(object sender, EventArgs e)
+        {
+            // Предыдущая чистка ещё идёт — пропускаем этот тик
+            if (!bgWorkerDeleteCrew.IsBusy)
+                bgWorkerDeleteCrew.RunWorkerAsync();
+        }
+
+        private void BGWorkerDeleteCrew_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            // Выполняется в фоновом потоке — UI не блокируется
+            e.Result = Database.DeleteInactiveCrews();
+        }
+
+        private void BGWorkerDeleteCrew_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MessageBox.Show(this, "Не удалось удалить неактивные экипажи: " + e.Error.Message,
+                    "BitMaster", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int)e.Result > 0)
+                dgvCrews.DataSource = Database.GetCrews();
         }
 
         private void RefreshDataGrid(object sender, EventArgs e)

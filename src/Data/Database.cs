@@ -491,6 +491,17 @@ ORDER BY LastName, FirstName;";
             DeleteById("Crews", id);
         }
 
+        /// <summary>Удаляет все неактивные экипажи. Возвращает число удалённых записей.</summary>
+        public static int DeleteInactiveCrews()
+        {
+            using (var connection = OpenConnection())
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM Crews WHERE Active = 0;";
+                return command.ExecuteNonQuery();
+            }
+        }
+
         private static void DeleteById(string table, int id)
         {
             using (var connection = OpenConnection())
