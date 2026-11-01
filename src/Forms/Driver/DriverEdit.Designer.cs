@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.grpMainInfo = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbExpirenceYears = new System.Windows.Forms.ComboBox();
@@ -48,10 +52,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.picCarIcon = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.grpMainInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,51 @@
             this.grpMainInfo.TabIndex = 9;
             this.grpMainInfo.TabStop = false;
             this.grpMainInfo.Text = "Основная информация";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(253, 379);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 17);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.label7.Location = new System.Drawing.Point(264, 379);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 17);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "обязательные поля";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(48, 151);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 17);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(75, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "*";
             // 
             // label3
             // 
@@ -290,51 +335,6 @@
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(75, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 17);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(48, 151);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 17);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "*";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(253, 379);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 17);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "*";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
-            this.label7.Location = new System.Drawing.Point(264, 379);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 17);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "обязательные поля";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // DriverEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,11 +347,11 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.picCarIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DriverEdit";
-            this.Text = "DriverEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Водитель";
             this.grpMainInfo.ResumeLayout(false);
             this.grpMainInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCarIcon)).EndInit();
