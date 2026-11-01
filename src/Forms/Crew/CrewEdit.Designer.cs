@@ -183,7 +183,6 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "   Удалить";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.Click += new System.EventHandler(this.Delete);
             // 
             // btnSave
             // 
@@ -198,7 +197,6 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "   Сохранить и закрыть";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.Click += new System.EventHandler(this.Save);
             // 
             // picCarIcon
             // 

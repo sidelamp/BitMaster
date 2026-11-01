@@ -10,14 +10,22 @@ namespace BitMaster.Forms.Driver
         public DriverEdit()
         {
             InitializeComponent();
+            WireButtons();
             FillExperienceYears();
         }
 
         public DriverEdit(int driverId) : base(driverId)
         {
             InitializeComponent();
+            WireButtons();
             FillExperienceYears();
             FillTextFields();
+        }
+
+        private void WireButtons()
+        {
+            btnSave.Click += Save;
+            btnDelete.Click += Delete;
         }
 
         private void FillExperienceYears()

@@ -26,10 +26,10 @@ namespace BitMaster.Forms
         protected virtual void FillTextFields() { }
 
         /// <summary>Проверить поля и сохранить запись в базу. true — успешно.</summary>
-        protected virtual bool SaveEntity() => false;
+        protected virtual bool SaveEntity() { return false; }
 
         /// <summary>Удалить запись entityId из базы. true — успешно.</summary>
-        protected virtual bool DeleteEntity() =>  false;
+        protected virtual bool DeleteEntity() { return false; }
 
         protected virtual void ShowWarning(string text)
         {

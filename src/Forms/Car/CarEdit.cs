@@ -10,12 +10,20 @@ namespace BitMaster.Forms.Car
         public CarEdit()
         {
             InitializeComponent();
+            WireButtons();
         }
 
         public CarEdit(int carId) : base(carId)
         {
             InitializeComponent();
+            WireButtons();
             FillTextFields();
+        }
+
+        private void WireButtons()
+        {
+            btnSave.Click += Save;
+            btnDelete.Click += Delete;
         }
 
         protected override void FillTextFields()
